@@ -7,6 +7,7 @@ import { ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 
 import theme from '../src/theme';
+import siteConfig from '../site-config';
 
 class MyApp extends App {
   render () {
@@ -14,7 +15,7 @@ class MyApp extends App {
     return (
       <Provider store={reduxStore}>
         <Head>
-          <title>NetxJS Base</title>
+          <title>{siteConfig.title}</title>
         </Head>
         <ThemeProvider theme={theme}>
           <CssBaseline />

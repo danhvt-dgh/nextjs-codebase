@@ -5,6 +5,7 @@ import createSaga from './common/middlewares'
 
 import commonReducers from './common/reducers/common'
 import sessionReducers from './common/reducers/session'
+import modulesReducers from './modules'
 
 const createMiddlewares = sagaMiddleware => {
   const middlewares = []
@@ -28,7 +29,8 @@ const createMiddlewares = sagaMiddleware => {
 const createReducers = initialState => {
   return combineReducers({
 		common: commonReducers,
-		session: sessionReducers
+		session: sessionReducers,
+		...modulesReducers(initialState)
   })
 }
 

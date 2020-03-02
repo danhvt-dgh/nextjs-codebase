@@ -1,6 +1,9 @@
+require('dotenv').config()
+
 const withPlugins = require('next-compose-plugins');
 const css = require('@zeit/next-css');
 const withImages = require("next-images");
+const webpack = require('webpack')
 
 const nextConfig = {
   target: 'serverless',
@@ -16,7 +19,10 @@ const nextConfig = {
           name: '[name].[ext]',
         },
       },
-    });
+		});
+		config.plugins.push(
+      new webpack.EnvironmentPlugin(process.env)
+    )
     return config;
   },
 };
